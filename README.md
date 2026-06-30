@@ -46,9 +46,8 @@ As funcionalidades principais estão descritas na seção **🚀 Funcionalidades
 
 | Nome | NUSP |
 |---|---|
-| André Marcelino Watanabe | 14558311 |
-| Pedro Henrique Tambara Zanutto | 15656517 |
-| Isaac Ferreira | 15637912 |
+| Ana Clara Stolses | 15654835 |
+| Isabela Lima | 15678780 |
 
 ---
 
