@@ -79,7 +79,7 @@ public class PatronsPanel extends JPanel {
                 String hist = manager.getPatronHistory(id);
                 JOptionPane.showMessageDialog(this,
                         new JScrollPane(new JTextArea(hist, 6, 40)),
-                        "Historical Lending Ledger Log — " + tableModel.getValueAt(table.convertRowIndexToModel(table.getSelectedRow()), 2),
+                        "Historical Lending Ledger Log - " + tableModel.getValueAt(table.convertRowIndexToModel(table.getSelectedRow()), 2),
                         JOptionPane.INFORMATION_MESSAGE);
             } catch (LibraryException ex) { 
                 error(this, ex.getMessage()); 
@@ -185,7 +185,7 @@ public class PatronsPanel extends JPanel {
     private void showEditDialog(Patron patron) {
         JTextField fName = new JTextField(patron.getName(), 20), fContact = new JTextField(patron.getContact(), 20);
         JPanel form = formGrid("Name:", fName, "Contact Info:", fContact);
-        if (JOptionPane.showConfirmDialog(this, form, "Update Member Sheet — " + patron.getId(), JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE) == JOptionPane.OK_OPTION) {
+        if (JOptionPane.showConfirmDialog(this, form, "Update Member Sheet - " + patron.getId(), JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE) == JOptionPane.OK_OPTION) {
             try { 
                 manager.editPatron(patron.getId(), fName.getText().trim(), fContact.getText().trim()); 
                 refresh(); 

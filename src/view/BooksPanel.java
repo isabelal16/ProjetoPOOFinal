@@ -184,7 +184,7 @@ public class BooksPanel extends JPanel {
         
         JPanel form = formGrid("Title:", fTitle, "Author:", fAuthor, "Genre:", fGenre, "Year:", fYear, "Adjust Total Capacity:", fCopies);
         
-        if (JOptionPane.showConfirmDialog(this, form, "Modify Entry Frame — " + book.getIsbn(), JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE) == JOptionPane.OK_OPTION) {
+        if (JOptionPane.showConfirmDialog(this, form, "Modify Entry Frame - " + book.getIsbn(), JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE) == JOptionPane.OK_OPTION) {
             try {
                 manager.editBook(book.getIsbn(), fTitle.getText().trim(), fAuthor.getText().trim(), fGenre.getText().trim(), intVal(fYear), intVal(fCopies));
                 refresh();

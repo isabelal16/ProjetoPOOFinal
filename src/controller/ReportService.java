@@ -38,7 +38,7 @@ public class ReportService {
     public String generateOverdueLog() {
         List<Loan> overdue = loanService.getOverdueLoans();
         StringBuilder sb = new StringBuilder();
-        sb.append("=== OVERDUE LOANS REPORT — ").append(LocalDate.now()).append(" ===\n\n");
+        sb.append("=== OVERDUE LOANS REPORT - ").append(LocalDate.now()).append(" ===\n\n");
 
         if (overdue.isEmpty()) {
             sb.append("No overdue loans recorded in the system.\n");

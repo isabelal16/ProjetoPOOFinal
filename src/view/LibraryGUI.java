@@ -36,7 +36,7 @@ public class LibraryGUI extends JFrame {
 
     private void buildFrame() {
         User user = manager.getCurrentUser();
-        setTitle("Integrated Management Terminal Core — Account Session: " + user.getUsername() + (user.isAdmin() ? " (Role: Security Admin)" : " (Role: Standard Operator)"));
+        setTitle("Integrated Management Terminal Core - Account Session: " + user.getUsername() + (user.isAdmin() ? " (Role: Security Admin)" : " (Role: Standard Operator)"));
         setSize(1080, 640);
         setMinimumSize(new Dimension(900, 520));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

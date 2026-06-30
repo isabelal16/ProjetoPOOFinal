@@ -46,7 +46,7 @@ public class Main {
             int opt = JOptionPane.showConfirmDialog(
                     null, 
                     panel,
-                    "📚 Session Gateway — Library Terminal",
+                    "📚 Session Gateway - Library Terminal",
                     JOptionPane.OK_CANCEL_OPTION, 
                     JOptionPane.PLAIN_MESSAGE
             );
