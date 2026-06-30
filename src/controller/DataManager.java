@@ -20,10 +20,22 @@ import java.util.Scanner;
  */
 public class DataManager {
 
-    private static final String BOOKS_FILE = "books.txt";
-    private static final String PATRONS_FILE = "patrons.txt";
-    private static final String LOANS_FILE = "loans.txt";
+    private static final String DATA_DIR = "data";
+    private static final String BOOKS_FILE = DATA_DIR + File.separator + "books.txt";
+    private static final String PATRONS_FILE = DATA_DIR + File.separator + "patrons.txt";
+    private static final String LOANS_FILE = DATA_DIR + File.separator + "loans.txt";
     private static final String LOG_FILE = "overdue_log.txt";
+
+    public DataManager() {
+        ensureDataDirectoryExists();
+    }
+
+    private void ensureDataDirectoryExists() {
+        File dataDir = new File(DATA_DIR);
+        if (!dataDir.exists()) {
+            dataDir.mkdirs();
+        }
+    }
 
     // --- BOOKS PERSISTENCE ---
 

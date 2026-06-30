@@ -1,0 +1,142 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% A linha acima é necessária apenas para identificar financiamento no primeiro rodapé. Se não for usada, pode ser removida.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i}\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}
+\begin{document}
+
+\title{JavaLibrary: Sistema de Gerenciamento de Biblioteca\
+\thanks{Este trabalho foi desenvolvido como parte da disciplina de Programação Orientada a Objetos.}
+}
+
+\author{\IEEEauthorblockN{Ana Clara Stolses}
+\IEEEauthorblockA{\textit{Departamento de Engenharia de Computação} \\
+\textit{Universidade de São Paulo} \\
+São Paulo, Brasil \\
+ana.clara.stolses@example.com}
+\and
+\IEEEauthorblockN{Isabela Lima}
+\IEEEauthorblockA{\textit{Departamento de Engenharia de Computação} \\
+\textit{Universidade de São Paulo} \\
+São Paulo, Brasil \\
+isabela.lima@example.com}
+}
+
+\maketitle
+
+\begin{abstract}
+Este relatório descreve o desenvolvimento do sistema JavaLibrary, um software de gestão de biblioteca desenvolvido em Java com interface gráfica Swing. O documento abrange requisitos, arquitetura, implementação, persistência, testes, procedimentos de compilação e limitações do trabalho. As imagens utilizadas estão localizadas na mesma pasta do arquivo \texttt{.tex} no Overleaf.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Java, Swing, biblioteca, persistência, relatório, desenvolvimento de software.
+\end{IEEEkeywords}
+
+\section{Introdução}
+O JavaLibrary é um sistema de gerenciamento de biblioteca pensado para oferecer controle de acervo, cadastro de usuários, registro de empréstimos, devoluções e geração de relatórios de forma integrada. A aplicação foi desenvolvida como atividade acadêmica para aplicar conceitos de Programação Orientada a Objetos, interface gráfica e persistência de dados.
+
+\section{Requisitos}
+Os requisitos funcionais atendidos pelo projeto incluem:
+\begin{itemize}
+    \item cadastro, edição e exclusão de livros com campos como ISBN, título, autor, gênero, ano e quantidade de cópias;
+    \item cadastro e edição de usuários (patronos) com identificação, nome, contato e histórico de empréstimos;
+    \item registro de empréstimos e devoluções com prazo automático de 14 dias;
+    \item cálculo automático de multas de R\$ 2,00 por dia de atraso;
+    \item geração de relatórios de empréstimos ativos, atrasados e histórico de usuários;
+    \item controle de acesso por perfil de usuário: administrador e bibliotecário;
+    \item persistência local de dados em arquivos de texto.
+\end{itemize}
+
+Além disso, foram implementados requisitos de projeto específicos:
+\begin{itemize}
+    \item leitura inicial dos dados a partir dos arquivos \texttt{books.txt}, \texttt{patrons.txt} e \texttt{loans.txt};
+    \item interface gráfica em Swing organizada em painéis distintos para cada funcionalidade;
+    \item separação básica entre camadas de modelo, controlador e visualização.
+\end{itemize}
+
+\section{Descrição do Projeto}
+O projeto é estruturado em três camadas:
+\begin{itemize}
+    \item \textbf{Modelo}: classes de domínio em \texttt{src/model/}, como \texttt{Book}, \texttt{Patron}, \texttt{Loan}, \texttt{User}, \texttt{Administrator} e \texttt{Librarian}.
+    \item \textbf{Controlador}: classes de serviço em \texttt{src/controller/}, que implementam regras de negócio e persistência.
+    \item \textbf{Visualização}: classes de interface em \texttt{src/view/}, responsáveis por apresentar e capturar ações do usuário.
+\end{itemize}
+
+A classe \texttt{Main} inicializa o sistema, exibe a tela de login e carrega o gerenciador central \texttt{LibraryManager}. A partir daí, o usuário interage com os painéis de livros, patronos, empréstimos e relatórios.
+
+\section{Comentários sobre o Código}
+A aplicação segue uma organização modular, com classes de serviço responsáveis por fluxos específicos:
+\begin{itemize}
+    \item \texttt{AuthenticationService}: autenticação de usuários;
+    \item \texttt{BookService}: operações de livros;
+    \item \texttt{PatronService}: operações de patronos;
+    \item \texttt{LoanService}: controle de empréstimos e devoluções;
+    \item \texttt{ReportService}: geração de relatórios e exportação de logs;
+    \item \texttt{DataManager}: leitura e gravação de arquivos de persistência.
+\end{itemize}
+
+A interface gráfica utiliza componentes Swing e mantém referências diretas ao \texttt{LibraryManager}, permitindo que cada painel execute as operações do domínio. Embora exista uma separação entre camadas, o acoplamento ainda é moderado entre UI e lógica de negócios.
+
+\section{Plano de Testes}
+O plano de testes abrange validações manuais dos principais fluxos:
+\begin{itemize}
+    \item autenticação com credenciais válidas e inválidas;
+    \item cadastro, edição e exclusão de livros;
+    \item cadastro e alteração de patronos;
+    \item registro de empréstimos com atualização de disponibilidade;
+    \item devolução de empréstimos e cálculo de multas;
+    \item geração de relatórios e exportação de logs;
+    \item persistência dos dados entre execuções.
+\end{itemize}
+
+\section{Resultados dos Testes}
+Os testes manuais confirmaram o funcionamento dos principais casos de uso. Foram verificados:
+\begin{itemize}
+    \item leitura e escrita correta dos arquivos de dados;
+    \item atualização de contagem de exemplares ao emprestar e devolver livros;
+    \item bloqueio de empréstimos quando o número de cópias está zerado;
+    \item cálculo automático de multa em empréstimos atrasados;
+    \item geração de relatórios de empréstimos ativos e atrasados.
+\end{itemize}
+
+\section{Procedimentos de Build}
+Para compilar e executar o projeto, siga os passos abaixo:
+\begin{enumerate}
+    \item Instale o Java JDK 11 ou superior.
+    \item Abra o terminal na pasta raiz do projeto.
+    \item Execute o script no Windows:
+    \begin{itemize}
+        \item \texttt{run.bat}
+    \end{itemize}
+    \item Para compilação manual:
+    \begin{itemize}
+        \item \texttt{javac -d out src\\*.java}
+        \item \texttt{java -cp out Main}
+    \end{itemize}
+\end{enumerate}
+
+\section{Problemas}
+Os problemas e limitações identificados no projeto incluem:
+\begin{itemize}
+    \item persistência baseada em arquivos de texto, sem abstração de banco de dados;
+    \item ausência de testes automatizados dentro do repositório;
+    \item acoplamento parcial entre componentes de interface e lógica de negócio;
+    \item validação de dados simples em alguns formulários.
+\end{itemize}
+
+\section{Comentários}
+O sistema oferece uma base funcional para gerenciamento de biblioteca e serve como prova de conceito para a aplicação de padrões de projeto.
+Para a próxima versão, recomenda-se melhorar a separação entre interface e lógica, introduzir testes automatizados e adotar uma camada de persistência mais robusta.
+
+\section{Referências}
+\begin{thebibliography}{00}
+\bibitem{b1}IEEE Editorial Style Manual, IEEE, 2020.
+\end{thebibliography}
+
+\end{document}
