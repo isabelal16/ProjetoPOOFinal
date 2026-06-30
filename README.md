@@ -1,171 +1,279 @@
-# 📚 Sistema de Gerenciamento de Biblioteca (JavaLibrary)
+# 📚 JavaLibrary - Sistema de Gerenciamento de Biblioteca
 
-**JavaLibrary** é uma aplicação desktop desenvolvida em **Java** que implementa um sistema completo para gerenciamento de acervos, clientes, empréstimos e notificações de atraso.
-
-O sistema utiliza **interface gráfica (GUI) desenvolvida com Swing** e foi criado como forma de consolidar os aprendizados adquiridos na disciplina **SCC0204 — Programação Orientada a Objetos (2026)**.
-
-O projeto foi estruturado seguindo princípios de **Programação Orientada a Objetos (POO)**, padrões de projeto e persistência de dados utilizando arquivos de texto simples (`.txt`).
-
----
-
-# 📋 Descrição do Sistema
-
-O sistema contempla os seguintes fluxos principais:
-
-* **Autenticação de Usuários**
-  Controle de sessão e gerenciamento de permissões com base no perfil de acesso (**Administrador** ou **Bibliotecário**).
-
-* **Gerenciamento de Livros (CRUD)**
-  Cadastro, consulta, atualização e remoção de livros com validação de **ISBN único** e controle de quantidade de exemplares.
-
-* **Gerenciamento de Clientes (Patronos)**
-  Cadastro de membros e rastreamento automático do histórico individual de empréstimos.
-
-* **Gerenciamento de Empréstimos**
-  Controle de empréstimos e devoluções com cálculo automático de multas por atraso.
-
-* **Relatórios e Auditoria**
-  Geração de registros textuais contendo itens em atraso em formato semelhante a notificações por e-mail.
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Swing](https://img.shields.io/badge/GUI-Swing-blue?style=for-the-badge)
+![POO](https://img.shields.io/badge/POO-Programação_Orientada_a_Objetos-success?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Concluído-brightgreen?style=for-the-badge)
 
 ---
 
-# 🛠️ Requisitos do Sistema
+# 📖 Sobre o Projeto
 
-* **Java:** JDK 11 ou superior (configurado no `PATH`)
-* **Sistema Operacional:** Windows, Linux ou macOS
-* **Memória RAM:** mínimo de 512 MB (recomendado 1 GB)
+O **JavaLibrary** é um sistema de gestão de biblioteca desenvolvido em **Java** com interface construída em **Swing**.
+
+O propósito do projeto é aplicar conceitos de **Programação Orientada a Objetos (POO)** e apresentar um fluxo completo de cadastro de livros, gestão de usuários, controle de empréstimos e geração de relatórios.
+
+O sistema também oferece controle de acesso por perfil, validando privilégios para as operações de administração e uso diário.
+
+O sistema permite o gerenciamento de:
+
+- 📚 Livros
+- 👨‍🎓 Usuários
+- 🔄 Empréstimos
+- 💰 Multas
+- 📊 Relatórios
+- 🔐 Permissões de acesso
 
 ---
 
-# 📁 Estrutura de Pastas
+# 📋 Requisitos
+
+O sistema foi desenvolvido para atender aos seguintes requisitos gerais:
+
+- Gerenciar o acervo de livros da biblioteca;
+- Cadastrar e atualizar usuários do sistema;
+- Registrar empréstimos e devoluções;
+- Calcular multas por atraso;
+- Gerar relatórios de empréstimos e atrasos;
+- Fazer controle de acesso entre administrador e bibliotecário;
+- Persistir os dados entre execuções.
+
+As funcionalidades principais estão descritas na seção **🚀 Funcionalidades Principais**.
+
+---
+
+# 👨‍💻 Integrantes
+
+| Nome | NUSP |
+|---|---|
+| André Marcelino Watanabe | 14558311 |
+| Pedro Henrique Tambara Zanutto | 15656517 |
+| Isaac Ferreira | 15637912 |
+
+---
+
+# 🖥️ Interfaces do Sistema
+
+A interface gráfica utiliza **Java Swing** e foi organizada em painéis para facilitar o uso em operações de consulta, cadastro e controle de empréstimos.
+
+O layout é dividido em abas que suportam acesso rápido a livros, usuários, empréstimos e relatórios.
+
+Os mockups abaixo representam algumas das telas implementadas no sistema.
+
+---
+
+# 📷 Mockups das Interfaces do Sistema
+
+## 📚 Tela de Gerenciamento de Livros
+
+![Tela Livros Admin](mockups/Livros%20ADMIN.png)
+
+---
+
+## 🔄 Tela de Empréstimos
+
+![Tela Empréstimos Bibliotecário](mockups/emprestimo-bibliotecario.png)
+
+---
+
+## 📊 Tela de Relatórios
+
+![Tela Relatórios Admin](mockups/relatorio-Admin.png)
+
+---
+
+## 👨‍🎓 Tela de Usuários
+
+![Tela Usuários Admin](mockups/Usuarios-admin.png)
+
+---
+
+# 🚀 Funcionalidades Principais
+
+## 📚 Gestão de Livros
+
+- Cadastro de livros
+- Edição de informações do livro
+- Exclusão de livros
+- Controle de quantidade de exemplares
+- Busca por título, autor, ISBN e gênero
+
+---
+
+## 👨‍🎓 Gestão de Usuários
+
+- Cadastro de usuários
+- Edição de perfil de usuário
+- Exclusão de usuários
+- Busca por nome ou identificador
+
+---
+
+## 🔄 Sistema de Empréstimos
+
+- Registro de empréstimos com prazo padrão de **14 dias**
+- Verificação de disponibilidade de exemplares
+- Renovação de empréstimos
+- Registro de devolução de livros
+- Atualização automática do estoque de exemplares
+- Histórico de empréstimos
+
+---
+
+## 💰 Sistema de Multas
+
+- Cálculo automático de multas de atraso
+- Identificação de empréstimos vencidos
+- Valor da multa:
+  - **R$ 2,00 por dia de atraso**
+- Bloqueio de operações em caso de pendências
+
+---
+
+## 📊 Relatórios
+
+O sistema gera relatórios de:
+
+- Empréstimos ativos
+- Empréstimos atrasados
+- Histórico por usuário
+- Histórico geral
+
+---
+
+## 🔐 Controle de Acesso
+
+O sistema possui dois perfis de usuário principais:
+
+| Perfil | Permissões |
+|---|---|
+| Administrador | Cadastro, edição e exclusão de livros e usuários; geração de relatórios; controle de permissões |
+| Bibliotecário | Registro de empréstimos e devoluções; consulta ao acervo |
+
+---
+
+## 💾 Persistência de Dados
+
+Os dados são mantidos em arquivos de texto no diretório raiz do projeto.
+
+Arquivos utilizados:
 
 ```text
-JavaLibrary/
-├── src/
-│   ├── exception/        # Exceções personalizadas (LibraryException)
-│   ├── model/            # Entidades (Book, User, Loan, Patron...)
-│   ├── controller/       # Regras de negócio, persistência e fachada
-│   ├── view/             # Interface gráfica (Swing)
-│   └── Main.java         # Ponto de entrada da aplicação
-│
-├── books.txt             # Base de livros (gerado automaticamente)
-├── patrons.txt           # Base de clientes (gerado automaticamente)
-├── loans.txt             # Base de empréstimos (gerado automaticamente)
+books.txt
+patrons.txt
+loans.txt
 ```
 
----
-
-# 💾 Persistência de Dados
-
-Os dados são armazenados localmente na pasta raiz do projeto utilizando arquivos de texto (`.txt`) com valores separados por ponto e vírgula (**CSV manual**).
-
-A persistência é gerenciada pela classe **DataManager**, responsável pela criação, leitura e atualização automática dos arquivos conforme as operações realizadas na interface gráfica.
-
-Além dos arquivos principais, o sistema também gera registros de auditoria automaticamente.
+A classe **DataManager** faz a leitura e escrita desses arquivos sempre que o sistema atualiza livros, usuários ou empréstimos.
 
 ---
 
-# 🔐 Credenciais de Acesso (Login Padrão)
+# 🧠 Estrutura do Projeto
 
-O sistema possui dois níveis de acesso implementados por meio de polimorfismo:
+## 📂 Principais Classes
 
-| Usuário | Senha    | Perfil        | Permissões                         |
-| ------- | -------- | ------------- | ---------------------------------- |
-| admin   | admin123 | Administrador | Acesso completo ao sistema         |
-| lib     | lib123   | Bibliotecário | Consulta, empréstimos e devoluções |
-
-### Administrador
-
-* Gerenciamento completo de livros
-* Gerenciamento de clientes
-* Empréstimos e devoluções
-* Relatórios e auditoria
-
-### Bibliotecário
-
-* Consulta ao acervo
-* Registro de empréstimos
-* Registro de devoluções
-
----
-
-# 🚀 Como Executar o Projeto
-
-## Opção A — VS Code (Recomendado)
-
-1. Abra a pasta **JavaLibrary** no VS Code.
-2. Instale a extensão **Extension Pack for Java** (Microsoft).
-3. Abra o arquivo:
-
-```text
-src/Main.java
-```
-
-4. Clique em **Run** (▶️) no canto superior direito.
+| Classe | Responsabilidade |
+|---|---|
+| `Book` | Representa os livros do acervo |
+| `Patron` | Representa os usuários/patronos |
+| `Loan` | Registra empréstimos e devoluções |
+| `User` | Modelo base para autenticação |
+| `Administrator` | Perfil de administrador |
+| `Librarian` | Perfil de bibliotecário |
+| `LibraryManager` | Lógica de negócio e validações |
+| `DataManager` | Persistência em arquivos de texto |
+| `AuthenticationService` | Autenticação de login |
+| `BookService` | Operações sobre livros |
+| `PatronService` | Operações sobre usuários |
+| `LoanService` | Controle de empréstimos |
+| `ReportService` | Geração de relatórios |
+| `LibraryGUI` | Interface gráfica principal |
+| `Main` | Ponto de entrada da aplicação |
 
 ---
 
-## Opção B — Windows
+# 🛠️ Conceitos de POO Aplicados
 
-Execute o arquivo:
+## 1️⃣ Herança
 
-```text
+O sistema usa herança para definir perfis de usuário a partir de uma classe base e para estruturar entidades de domínio.
+
+---
+
+## 2️⃣ Encapsulamento
+
+Os atributos das classes são protegidos com modificadores `private` e acessados via getters e setters.
+
+---
+
+## 3️⃣ Polimorfismo
+
+Perfis distintos de usuário têm comportamentos específicos por meio de classes especializadas.
+
+---
+
+## 4️⃣ Abstração
+
+As classes representam entidades do domínio com foco nos atributos essenciais para a biblioteca.
+
+---
+
+## 5️⃣ Organização em Camadas
+
+A separação entre interface, serviço e persistência permite manter o código mais modular e fácil de manter.
+
+---
+
+# 💬 Comentários sobre o Código
+
+A arquitetura do projeto separa responsabilidades em camadas:
+
+- A interface gráfica em `view/` cuida da interação com o usuário;
+- As classes em `controller/` realizam as regras de negócio e validações;
+- A persistência em `DataManager` mantém os dados em arquivos de texto.
+
+Esse desacoplamento facilita futuras melhorias e manutenção do sistema.
+
+---
+
+# 🧪 Como Executar o Projeto
+
+## ✅ Pré-requisitos
+
+- Java Development Kit (JDK) 11 ou superior instalado;
+- Terminal ou prompt de comando;
+- VS Code com extensão Java, se for usar a IDE.
+
+## ▶️ Executando em VS Code
+
+1. Abra o diretório do projeto em VS Code.
+2. Abra `src/Main.java`.
+3. Use a opção de execução do Java no editor.
+
+## ▶️ Executando pelo terminal (Windows)
+
+```powershell
 run.bat
 ```
 
-O script irá:
-
-* Criar a pasta `out/`
-* Compilar o projeto
-* Executar a aplicação automaticamente
-
----
-
-## Opção C — Linux / macOS
-
-No terminal:
+## ▶️ Executando pelo terminal (Linux/macOS)
 
 ```bash
 chmod +x run.sh
-
 ./run.sh
 ```
 
----
+## 🔐 Login padrão
 
-# 👑 Detalhes Técnicos e Padrões Aplicados
+Utilize as credenciais abaixo para acessar o sistema:
 
-### Facade Pattern
-
-Implementado na classe **LibraryManager**, funcionando como ponto central de comunicação entre a interface gráfica e as regras de negócio.
-
-### Encapsulamento e Integridade
-
-O sistema impede a exclusão de livros ou clientes que possuam empréstimos ativos, preservando a consistência dos dados.
-
-### Persistência em Arquivos
-
-Implementação baseada em arquivos `.txt`, dispensando o uso de banco de dados externo.
-
-### Regra de Negócio — Multas por Atraso
-
-Os empréstimos possuem prazo padrão de **14 dias corridos**.
-
-Após esse período, é aplicada uma multa fixa de:
-
-**R$ 2,00 por dia de atraso.**
-
-O cálculo é realizado automaticamente no momento da devolução.
+| Perfil | Login | Senha |
+|---|---|---|
+| Administrador | `admin` | `admin123` |
+| Bibliotecário | `lib` | `lib123` |
 
 ---
 
-# 🎯 Objetivo Acadêmico
+# 📄 Licença
 
-Este projeto foi desenvolvido como atividade da disciplina **SCC0204 — Programação Orientada a Objetos (2026)** com foco na aplicação prática de:
-
-* Programação Orientada a Objetos (POO)
-* Interface gráfica com Swing
-* Persistência de dados
-* Padrões de projeto
-* Organização em camadas
-* Boas práticas de desenvolvimento em Java
+Projeto desenvolvido para fins acadêmicos na disciplina de Programação Orientada a Objetos.
