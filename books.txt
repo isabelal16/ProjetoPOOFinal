@@ -1,0 +1,5 @@
+9780140449136;Dom Quixote;Miguel de Cervantes;Clássico;1605;2;3
+9780262531962;Introduction to Algorithms;Thomas H. Cormen;Computação;2009;1;2
+9780307277671;A Guerra dos Tronos;George R. R. Martin;Fantasia;1996;0;1
+9788576574232;O Pequeno Príncipe;Antoine de Saint-Exupéry;Infantil;1943;4;4
+9786558476782;Java: Como Programar;Paul Deitel;Tecnologia;2021;3;3

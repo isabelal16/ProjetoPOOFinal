@@ -63,27 +63,39 @@ Os mockups abaixo representam algumas das telas implementadas no sistema.
 
 # 📷 Mockups das Interfaces do Sistema
 
-## 📚 Tela de Gerenciamento de Livros
+## 🏠 Tela Inicial
 
-![Tela Livros Admin](mockups/Livros%20ADMIN.png)
+![Tela Inicial](img/tela-inical.jpeg)
+
+---
+
+## 📚 Tela de Livros
+
+![Tela de Livros](img/tela-livros.jpeg)
+
+---
+
+## ➕ Formulário de Cadastro de Livro
+
+![Tela de Adição de Livros](img/tela-add-livros.jpeg)
 
 ---
 
 ## 🔄 Tela de Empréstimos
 
-![Tela Empréstimos Bibliotecário](mockups/emprestimo-bibliotecario.png)
+![Tela de Empréstimos](img/tela-emprestimos.jpeg)
 
 ---
 
 ## 📊 Tela de Relatórios
 
-![Tela Relatórios Admin](mockups/relatorio-Admin.png)
+![Tela de Relatórios](img/tela-relatorios.jpeg)
 
 ---
 
-## 👨‍🎓 Tela de Usuários
+## 👨‍🎓 Tela de Histórico de Usuários
 
-![Tela Usuários Admin](mockups/Usuarios-admin.png)
+![Tela de Clientes e Histórico](img/tela-clientes-historicos.jpeg)
 
 ---
 
