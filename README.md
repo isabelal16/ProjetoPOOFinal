@@ -81,13 +81,13 @@ Os mockups abaixo representam algumas das telas implementadas no sistema.
 
 ---
 
-## 🔄 Tela de Empréstimos
+## 🔄 Tela de Usuários
 
 ![Tela de Empréstimos](img/tela-emprestimos.jpeg)
 
 ---
 
-## 📊 Tela de Relatórios
+## 📊 Tela de Empréstimos
 
 ![Tela de Relatórios](img/tela-relatorios.jpeg)
 
